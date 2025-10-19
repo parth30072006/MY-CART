@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9ltd_0u=%xhq-5*5)r6g2x#xnqu&5u+gn@+z0#yjm6cz-_p37^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com/']
 # import os
 # # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -142,7 +142,10 @@ RAZORPAY_KEY_SECRET = "VafHMSbi4ZEa8IRGZdH2nZW7"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+#STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
