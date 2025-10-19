@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-9ltd_0u=%xhq-5*5)r6g2x#xnqu&5u+gn@+z0#yjm6cz-_p37^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.onrender.com/']
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 # import os
 # # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,6 +60,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -145,7 +146,6 @@ RAZORPAY_KEY_SECRET = "VafHMSbi4ZEa8IRGZdH2nZW7"
 #STATIC_URL = 'static/'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
